@@ -1,14 +1,22 @@
 // Algorithms: a sequence of steps to solve al clearly defined problem
 
+// GitHub Repository : trekhleb/javascript-algorithms
+
 // Big O Notation: Constant O(1), Quadratic O(n2), Cubic O(n3), ...
 // Use Big O for comparing algorithms
 // O(1) < O(log n) < O(n) < O(n**2) < O(2**n)
 
 // Deriving Big O: 1-Define the function 2-Find the fastest growing term 3-Remove the coefficient -> T=n
 
-// Only one function -> O(1)
-// When n is split into smaller chunks -> O(log n)
-// Single Loop -> O(n)
+// Constant - Only one function -> O(1)
+// Logarithmic - When n is split into smaller chunks -> O(log n)
+// Linier - Single Loop -> O(n)
+// Quadratic - Two nested loops -> O(n^2)
+// Exponential- recursive algorithms that solves a problem of size -> O(2^n)
+// Factorial- you are adding a loop for every element -> O(!n)
+
+// Iterating through half a collection is still O(n)
+// Two separate collections: O(a * b)
 
 let start = 0;
 let end = 0;
