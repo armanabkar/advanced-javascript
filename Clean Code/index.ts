@@ -1,3 +1,5 @@
+// (c) Arman Abkar
+
 // Clean code is readable an meaningful, reduce cognitive load, concise, avoid bad names and complex, big and nesting blocks, follow common best practices and fun to write and maintain! -> Clean code is easy understand (like an essay)
 // Solutions: Rules & Concepts, Patterns & Principles, Test-Driven Development
 

@@ -43,3 +43,30 @@ user.update(); // instead of user.setName/setAge
 // Extract code that requires more interpretation than the surrounding code
 if (isValidEmail()) {
 }
+
+// Reusability matters => DRY!: don't write same code more than one place (copy/pasting code)
+// Split functions reasonably
+function updateUser() {
+  isValidEmail();
+}
+function fetchUser() {
+  isValidEmail();
+}
+
+// Keep functions pure; same inputs generates same output and no side effects (at least most of them in functional programming) e.g.:
+function generateId(username) {
+  const id = "id_" + username;
+  return id;
+}
+function functionWithSideEffects() {
+  console.log("Hello World"); // Side Effect
+  user.update(); // Side Effect
+}
+// Name of a function should signal or imply that a side effect is likely to occur e.g. saveUser(), createUser(), showMessage()
+// Functions shouldn't have unexpected side effects -> choose better name or move the side effect to another function
+
+// Unit Testing helps! -> If you can easily test a function, you should split it because it probably does many things and have side effects
+// instead of writing all of these in on function;
+function addProduct() {}
+function validateProductData() {}
+function saveProduct() {}
