@@ -1,3 +1,6 @@
+// Scope is all about the visibility of variables in your code - it controls which variable can be used where.
+// Hoisting is about how the JavaScript engine parses and executes your code and the “availability” of functions and variables.
+
 const myName = "Arman";
 let myCity = "Los Angeles";
 
@@ -38,6 +41,7 @@ if (myAge > 18) {
 console.log(yourAge);
 
 // Closures
+// Every function in JavaScript is a closure! That means that every function closes over its environment when it’s created.
 // Lexical env : the variables in scope
 // closures only memorize variable names and values looked up when executes
 function createGreeter(name) {

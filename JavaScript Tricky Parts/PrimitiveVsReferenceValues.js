@@ -1,5 +1,5 @@
 // Primitive Values
-// number - string - boolean - symbol - null - undefined - bigint -> Immutable non-object values
+// number - string - boolean - symbol - null - undefined - bigint -> Immutable non-object values and shared by copy
 let a = 5;
 let b = a; // new 5 created in memory (a copy)
 b = 3; // new place in memory
@@ -11,7 +11,7 @@ console.log("arman".toLocaleUpperCase());
 // Object: Arrays, objects, funcs, ... -> Mutable
 let person = { age: 31 };
 let anotherPerson = { age: 31 };
-let student = person; // same object - a pointer to
+let student = person; // same object - a pointer to same object in memory is copied
 person.age = 22; // student age will change
 console.log(student.age);
 console.log(student === person);

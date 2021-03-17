@@ -4,6 +4,7 @@ for (let i = 0; i <= 5; i++) {
   // You cant use const
   console.log(i);
 }
+// It is recommended that you use 'const' whenever possible though, hence it’s important to know that this is not a good idea (i.e. you’ll get an error) for normal for loops.
 
 const user = { name: "Arman", age: 22 };
 user.__proto__.test = 5;

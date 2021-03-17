@@ -1,4 +1,5 @@
 // Recursion
+// JavaScript only executes one function at a time but it’s capable of managing multiple ongoing (waiting) function calls with help of a concept called the execution context stack (or “call stack”).
 function factorialRecursion(n) {
   // base + recursive step
   return n === 0 ? 1 : n * factorialRecursion(n - 1);

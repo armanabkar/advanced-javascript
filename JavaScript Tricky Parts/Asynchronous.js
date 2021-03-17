@@ -6,6 +6,7 @@
 // Callbacks - e.g. setTimeout
 addItForMe(800, 800, function (result) {
   console.log(result);
+  // maybe more levels of nested callbacks here -> Callback Hell
 });
 function addItForMe(num1, num2, cb) {
   const result = num1 + num2;
@@ -41,6 +42,8 @@ myPromise.then((data) => data).then((data) => console.log(data));
 //   .then((data) => console.log(data))
 //   .catch((error) => console.log(error))
 //   .finally(() => console.log("finally"));
+
+// Older APIs (like setTimeout) don’t use Promises but since you can create your own promises as well, you would be able to create a promise wrapper
 
 // promisify apis:
 function setTimer(duration) {
