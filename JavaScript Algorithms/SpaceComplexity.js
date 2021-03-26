@@ -1,5 +1,6 @@
 // How much space in memory does your algorithm occupy - Memory is cheap! so time complexity is far more important than space complexity - Everything in JS is stored in memory. Arrays and Objects take up a bit more space
 // Deriving Space Complexity: Places that values stored permanently and count them, how that number depends on n? -> O(n)
+// What causes Space Complexity? Variables, Data Structures, Function Calls and Allocations
 
 // Factorial (loop) -> Space Complexity O(1)
 function factLoop(number) {
