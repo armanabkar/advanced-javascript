@@ -1,4 +1,5 @@
-// Min Heap are Trees where the parent node values are smaller or equal than child node values (for a 'Max Heap', it's the other way around) - so easy access to important values and great for building priority queues!
+// Min Heap are Trees where the parent node values are smaller or equal than child node values (for a 'Max Heap', it's the other way around) - so easy access to important values and great for building priority queues! - useful for algorithms that ordering is important
+// Binary Heaps are good because of good time complexity, flexible size, priority and ordered - but slow lookup
 
 // Example of heap:
 // const heap = [250, 197, 85, 101, 12, 40, 15];

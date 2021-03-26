@@ -1,5 +1,6 @@
-// Data like tree relationship e.g. The Browser DOM or a decision tree, consists of:
-// 1-Node/Vertex (contains value) 2-Edge (connection between nodes) 3-Root Node (top-most node) 4-Sub Tree (nested tree) 5-Leaf (a node without any child) 6-Path (a sequence of nodes and edges that connects 2 nodes) 7-Distance (number of edges between two nodes) 8-Parent/Child/Sibling/Ansector/Descendant 9-Degree (number of child nodes) 10-Level (distance between node and root) 11-Depth (maximum level in tree) 12-Breath (number of leaves) 13-Size (total number of nodes)
+// Data like tree relationship (parents and children) e.g. The Browser DOM or a decision tree
+
+// Trees are consists of: 1-Node/Vertex (contains value) 2-Edge (connection between nodes) 3-Root Node (top-most node) 4-Sub Tree (nested tree) 5-Leaf (a node without any child) 6-Path (a sequence of nodes and edges that connects 2 nodes) 7-Distance (number of edges between two nodes) 8-Parent/Child/Sibling/Ansector/Descendant 9-Degree (number of child nodes) 10-Level (distance between node and root) 11-Depth (maximum level in tree) 12-Breath (number of leaves) 13-Size (total number of nodes)
 // Time Complexities: element access/search O(n) - Insert element O(n) - Remove elements O(n)
 
 class Node {

@@ -7,6 +7,10 @@
 // So we use Adjacency List under the hood:
 // By using Sets, we can have better performance
 
+// Binary Heaps are good because of Relationships - but scaling is hard
+
+// You can use neo4j database for building graph data structures for production
+
 class Graph {
   constructor() {
     this.nodes = {};

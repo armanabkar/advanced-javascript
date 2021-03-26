@@ -1,6 +1,6 @@
 // With a root node that has empty value and has one child per character in alphabet - shines in simplicity and doesn't require optimizations (like hash tables) - can be used in search suggestions
 // Time Complexities: Find element O(n) - Insert element O(n) - Remove O(n)
-// Space Complexity O(n*k) -> hash tables are better
+// Space Complexity O(n*k) or O(length of the word) -> hash tables are better
 
 class TrieNode {
   constructor() {

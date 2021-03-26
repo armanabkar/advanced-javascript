@@ -1,6 +1,9 @@
-// every element knows about the next element - vert efficient sizing and insertion at start and end of the list
-// the main reason was memory management becurse it was dynamic but nowadays its not primary issue but still useful for lot of insertions at the beginning
+// First element is head and last is tail - Every element knows about the next element (with pointer or reference) and contains node (value) - vert efficient sizing and insertion at start and end of the list
+// The main reason was memory management becurse it was dynamic but nowadays its not primary issue but still useful for lot of insertions at the beginning
+// Doubly Linked Lists have extra pointer to previous node, more efficient in lookup O(n), Singly Linked Lists have better Space Complexity
+// Linked Lists are good because of fast Insertion, deletion, ordered and Flexible size - but slow Lookups and require more memory
 // Time Complexities: element access O(n) - insertion at the end O(1) - insertion at the beginning O(1) - Insertion in Middle O(1) + Search time - Search elements O(n)
+
 export class LinkedList {
   constructor() {
     this.head = null; // first element

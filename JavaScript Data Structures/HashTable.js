@@ -1,4 +1,6 @@
-// Existing JS Object is implemented as as hash table! - key/value pairs - consist of input + hashing function + hash table
+// Hash Tables are good because fast lookups, inserts and flexible keys - but unordered (ordered in python dic) and slow key iterations
+// Existing JS Object is implemented as as hash table! - key/value pairs - consist of input + hashing function + hash table - great for quick access
+// Keys are hashed and stored with values - Hash Collisions slows downs reading and writhing
 // Time Complexities: element access O(1) in theory, O(n) with lots of hash collision - insertion at the end O(1), O(n) with lots of hash collision - insertion at the beginning O(1) - Insertion in Middle O(1) - Search elements O(1), O(n) with lots of hash collision
 
 // Why we need hash tables?
@@ -33,7 +35,7 @@ class BasicHashTable {
     this.buckets = Array(16).fill(null);
   }
 
-  hash(key) {
+  _hash(key) {
     let hash = 0;
     for (const char of key) {
       hash += char.charCodeAt(0);
@@ -42,12 +44,12 @@ class BasicHashTable {
   }
 
   set(key, value) {
-    const keyHash = this.hash(key);
+    const keyHash = this._hash(key);
     this.buckets[keyHash] = value;
   }
 
   get(key) {
-    const keyHash = this.hash(key);
+    const keyHash = this._hash(key);
     return this.buckets[keyHash];
   }
 
@@ -68,7 +70,7 @@ class HashTableWithChaining {
       .map(() => []);
   }
 
-  hash(key) {
+  _hash(key) {
     let hash = 0;
     for (const char of key) {
       hash += char.charCodeAt(0);
@@ -77,7 +79,7 @@ class HashTableWithChaining {
   }
 
   set(key, value) {
-    const keyHash = this.hash(key);
+    const keyHash = this._hash(key);
     const bucketArray = this.buckets[keyHash];
     const storedElement = bucketArray.find((element) => {
       return element.key === key;
@@ -90,7 +92,7 @@ class HashTableWithChaining {
   }
 
   get(key) {
-    const keyHash = this.hash(key);
+    const keyHash = this._hash(key);
     const bucketArray = this.buckets[keyHash];
     const storedElement = bucketArray.find((element) => {
       return element.key === key;
@@ -188,3 +190,28 @@ for (const char of "does this work") {
   table3.set(char, char);
 }
 console.log(table3.showInfo());
+
+function firstRecurringCharacter1(input) {
+  for (let i = 0; i < input.length; i++) {
+    for (let j = i + 1; j < input.length; j++) {
+      if (input[i] === input[j]) return input[i];
+    }
+  }
+
+  return undefined;
+}
+// use hash tables to improve time complexity
+function firstRecurringCharacter2(input) {
+  let map = {};
+  for (let i = 0; i < input.length; i++) {
+    if (map[input[i]] !== undefined) {
+      return input[i];
+    } else {
+      map[input[i]] = i;
+    }
+  }
+
+  return undefined;
+}
+console.log(firstRecurringCharacter1([2, 5, 1, 2, 3, 5, 1, 2, 4])); // O(n^2)
+console.log(firstRecurringCharacter2([2, 5, 1, 2, 3, 5, 1, 2, 4])); // O(n)

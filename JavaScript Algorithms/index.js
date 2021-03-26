@@ -77,3 +77,5 @@ function logAllPairsOfArrays(array) {
   }
 }
 logAllPairsOfArrays([1, 2]);
+
+// Logarithmic Time Complexity O(log n) -> with Tree Data Structures, like google's search results

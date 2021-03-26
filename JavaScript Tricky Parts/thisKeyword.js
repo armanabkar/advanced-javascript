@@ -1,4 +1,5 @@
 // "this" keyword
+// Context says where we are (which environment)
 // this in strict mode wont refer to global object
 // this refers to object on which a func is called and depends on its execution context
 const person = {

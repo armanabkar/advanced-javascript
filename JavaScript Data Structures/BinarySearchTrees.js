@@ -1,4 +1,5 @@
 // A tree for sorted data (any value type), every node only can have max 2 child nodes, left node is smaller and right node is bigger than parent node
+// Binary Search Trees are good because of good time complexity, flexible size and ordered - but no O(1) operations
 // Time Complexities: element access/search worst case O(n) average O(log n) because it get splitted - Insert element O(n) average O(log n) - Remove elements O(n) average O(log n)
 
 class Node {

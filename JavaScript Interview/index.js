@@ -1,3 +1,7 @@
+// Variables that not used are memory leaks (global variables)
+// JS is single-threaded/non-blocking and has Call Stack for executing functions (LIFO), recursion without base case -> StackOverFlow!
+// WebAPIs: DOM, AJAX, setTimeout, ...
+
 let x; // undefined
 let y = null;
 console.log(x);

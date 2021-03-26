@@ -1,6 +1,8 @@
-// A simplified array - push on the top and pop from the top - LIFO (Last In First Out) - Use case optimization
+// A simplified array - push on the top and pop from the top - LIFO (Last In First Out) - Use case optimization - used in languages (JS Call Stack), browser history, undo etc.
 // JavaScript Stack -> only one function get call
 // Time Complexities: element access O(1) - insertion at the end O(1) - insertion at the beginning O(n) with pop of all elements (Data Loss) - Insertion in Middle O(n) wit pops (Data Loss) - Search elements O(n) with pops (Data Loss)
+// Stacks are good because of fast operations, peak and ordered - but slow Lookup
+
 class Stack {
   constructor() {
     this.items = [];

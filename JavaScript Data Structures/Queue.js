@@ -1,5 +1,7 @@
 // A simplified array with enqueue and dequeue - FIFO (First In First Out) - Use case optimization
 // Time Complexities: element access O(1) limited to first element - insertion at the end O(n) with Data Loss - insertion at the beginning O(1) - Insertion in Middle O(n) wit Data Loss - Search elements O(n) with pops Data Loss
+// Queues are good because of fast operations, peak and ordered - but slow Lookup
+
 class Queue {
   constructor() {
     this.items = [];
