@@ -1,3 +1,6 @@
+// Anything you do with a recursion can be done iteratively (loop) - Recursion is good because of DRY and readable code, but large stack (can be solved with tail call optimization)
+// use cases: Merge Sort, Quick Sort, Tree and Graph Traversals, etc
+
 // Recursive Factorial
 function fact(number) {
   if (number === 1) {
@@ -21,9 +24,9 @@ function fib(n) {
 }
 console.log(fib(6), `- runs ${counter} times`); // 5
 
-// Dynamic Programming: consist of
+// Dynamic Programming: is just an optimization technique (caching); consist of
 // 1 Recursion - great for repeated computations, can lead to duplicate work
-// 2 Memoization (stored data) - avoid unnecessary recursive steps - reusing results
+// 2 Memoization (stored/cached data) - avoid unnecessary recursive steps - reusing results
 let counterMemo = 0;
 function fibMemo(n, memo) {
   counterMemo++;
@@ -40,5 +43,22 @@ function fibMemo(n, memo) {
   return result;
 }
 console.log(fibMemo(6, {}), `- runs ${counterMemo} times`); // 5
+
+function memoizedAddTo80() {
+  // using closures
+  let cache = {};
+  return function (n) {
+    if (n in cache) return cache[n];
+
+    console.log("long time...");
+    cache[n] = n + 80;
+    return cache[n];
+  };
+}
+const memoizedAddTo80withClosure = memoizedAddTo80();
+console.log(memoizedAddTo80withClosure(5));
+console.log(memoizedAddTo80withClosure(5));
+
+// Dynamic Programming is about dividing problem into subproblems and are there repetitive subproblems? memoize subproblems
 
 // Avoid Recursive solutions without memoization because of bad time complexities

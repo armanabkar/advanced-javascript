@@ -1,5 +1,11 @@
+const basket = [2, 65, 34, 1, 7, 8];
+console.log(basket.sort()); // JS convert int to string and then sort them so the result is strange!, also time/space complexity isn't guaranteed because of different implementations!
+console.log(basket.sort((a, b) => a - b));
+
 // Bubble Sort
 // Best O(1) - Average O(n^2) - Worst O(n^2)
+// Space Complexity O(1)
+// educational purposes
 function bubbleSort(arr) {
   const resultArray = [...arr];
 
@@ -23,8 +29,49 @@ function bubbleSort(arr) {
 }
 console.log(bubbleSort([5, 10, -3, -10, 1, 100, 99]));
 
-// Quick Sort
+// Selection Sort
+// Best O(n^2) - Average O(n^2) - Worst O(n^2)
+// Space Complexity O(1)
+// educational purposes
+function selectionSort(arr) {
+  const length = arr.length;
+  for (let i = 0; i < length; i++) {
+    let min = i;
+    let temp = arr[i];
+    for (let j = i + 1; j < length; j++) {
+      if (arr[j] < arr[min]) min = j;
+    }
+    arr[i] = arr[min];
+    arr[min] = temp;
+  }
+  return arr;
+}
+console.log(selectionSort([5, 10, -3, -10, 1, 100, 99]));
+
+// Insertion Sort
+// Best O(n) - Average O(n^2) - Worst O(n^2)
+// Space Complexity O(1)
+// good for small or sorted data sets
+function insertionSort(array) {
+  const length = array.length;
+  for (let i = 0; i < length; i++) {
+    if (array[i] < array[0]) {
+      array.unshift(array.splice(i, 1)[0]);
+    } else {
+      for (let j = 1; j < 1; j++) {
+        if (array[i] > array[j - 1] && array[i] < array[j]) {
+          array.splice(j, 0, array.splice(i, 1)[0]);
+        }
+      }
+    }
+  }
+}
+console.log(insertionSort([5, 10, -3, -10, 1, 100, 99]));
+
+// Quick Sort -> Divide & Conquer
 // Best O(n log n) - Average O(n log n) - Worst O(n log n)
+// Space Complexity O(log n)
+// quick in general but not good for bad data sets
 function quickSort(arr) {
   const copiedArray = [...arr];
 
@@ -57,8 +104,10 @@ function quickSort(arr) {
 }
 console.log(quickSort([5, 10, -3, -10, 1, 100, 99]));
 
-// Merge Sort - good for long arrays but more code and more memory is required
+// Merge Sort -> Divide & Conquer
 // Best O(n log n) - Average O(n^2) - Worst O(n^2)
+// Space Complexity O(n)
+// good for long arrays and huge files but more code and more memory is required
 function mergeSort(arr) {
   if (arr.length < 2) {
     return arr;
@@ -95,3 +144,6 @@ function mergeSort(arr) {
   return mergedArr;
 }
 console.log(mergeSort([5, 10, -3, -10, 1, 100, 99]));
+
+// Non-Comparison Sort: Counting Sort, Radix Sort -> using 0/1 for sorting & only works for numbers
+// Time Complexity O(n+k)

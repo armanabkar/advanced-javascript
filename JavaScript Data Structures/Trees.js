@@ -79,7 +79,7 @@ class Node {
     }
   }
 
-  // Breadth-firs t
+  // Breadth-first
   findBreathFirst(value) {
     console.log(this);
     for (const child of this.children) {
@@ -129,3 +129,16 @@ console.log(filesystem);
 // Traversing Tree : 1-Depth-First 2-Breath-First
 // Which one is better depends on the tree, e.g. If values is deeply inside the tree, choose BFS
 console.log(filesystem.find("personal"));
+
+// Breath First Search/Traversal
+// Searching in leafs in every level from left to right, more memory required (to keep track of elements)
+// pros: shortest path and closer nodes - cons: requires more memory
+
+// Depth First Search/Traversal
+// Searching in every branch completely from left to right, lower memory required
+// 3 variations: PreOrder - PostOrder - InOrder
+// pros: does path exist? and less memory required - cons: can get slow
+
+// BFS/DFS can be used in Graphs too, e.g. LinkedIn connections degree, recommendations or search engines, etc
+
+// Bellman-Ford & Dijkstra (more efficient) algorithms allows us to find shortest path between nodes, e.g. Google Maps

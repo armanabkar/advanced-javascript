@@ -1,3 +1,6 @@
+// Is array sorted? Divide & Conquer!
+// not sorted? Linear Search
+
 // Linear Search
 // go step by step and stop when element is found
 // Best case O(1) - Average O(n) - Worst O(n)
@@ -78,3 +81,5 @@ function recursiveBinarySearch(sortedArr, element, offset) {
 const sortedArr = [2, 3, 5, 7, 10, 33];
 console.log(BinarySearch(sortedArr, 10));
 console.log(recursiveBinarySearch(sortedArr, 2, 0));
+
+// Breath/Depth First Search algorithms are in ./Trees.js
