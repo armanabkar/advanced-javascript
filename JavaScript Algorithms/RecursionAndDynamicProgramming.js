@@ -27,23 +27,6 @@ console.log(fib(6), `- runs ${counter} times`); // 5
 // Dynamic Programming: is just an optimization technique (caching); consist of
 // 1 Recursion - great for repeated computations, can lead to duplicate work
 // 2 Memoization (stored/cached data) - avoid unnecessary recursive steps - reusing results
-let counterMemo = 0;
-function fibMemo(n, memo) {
-  counterMemo++;
-  let result;
-  if (memo[n]) {
-    return memo[n];
-  }
-  if (n === 0 || n === 1) {
-    result = 1;
-  } else {
-    result = fib(n - 1, memo) + fib(n - 2, memo);
-  }
-  memo[n] = result;
-  return result;
-}
-console.log(fibMemo(6, {}), `- runs ${counterMemo} times`); // 5
-
 function memoizedAddTo80() {
   // using closures
   let cache = {};
@@ -58,6 +41,24 @@ function memoizedAddTo80() {
 const memoizedAddTo80withClosure = memoizedAddTo80();
 console.log(memoizedAddTo80withClosure(5));
 console.log(memoizedAddTo80withClosure(5));
+
+// Memoized Recursive Fibonacci
+let counterMemo = 0;
+function fibMemo(n, memo) {
+  let result;
+  counterMemo++;
+  if (memo[n]) {
+    return memo[n];
+  }
+  if (n === 0 || n === 1) {
+    result = 1;
+  } else {
+    result = fib(n - 1, memo) + fib(n - 2, memo);
+  }
+  memo[n] = result;
+  return result;
+}
+console.log(fibMemo(6, {}), `- runs ${counterMemo} times`); // 5
 
 // Dynamic Programming is about dividing problem into subproblems and are there repetitive subproblems? memoize subproblems
 
