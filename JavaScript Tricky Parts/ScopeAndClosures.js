@@ -42,7 +42,7 @@ console.log(yourAge);
 
 // Closures
 // Every function in JavaScript is a closure! That means that every function closes over its environment when it’s created.
-// Lexical env : the variables in scope
+// Lexical env : the variables in scope, Lexical Scoping defines how variable names are resolved in nested functions: inner functions contain the scope of parent functions even if the parent function has returned.
 // closures only memorize variable names and values looked up when executes
 function createGreeter(name) {
   return function () {

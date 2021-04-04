@@ -23,15 +23,27 @@ class Person {
     console.log("My age: " + this.age);
   }
 
-  // fixing this with bind(this), apply and call
+  // this.age will return undefined because the callback function inside setTimeout is in a different lexical environment, fixing this with bind(this), apply and call
   // This bind method is a method worth remembering because it allows you to control the value of this
   greetWithDelay() {
+    setTimeout(
+      function () {
+        console.log(this);
+        console.log("My age: " + this.age);
+      }.bind(this),
+      1000
+    );
+  }
+
+  // Also can be fixed with Arrow Functions; while in ES5 ‘this’ referred to the parent of the function, in ES6, arrow functions use lexical scoping — ‘this’ refers to it’s current surrounding scope
+  greetWithDelayWithArrowFunction() {
     setTimeout(() => {
       console.log(this);
       console.log("My age: " + this.age);
-    }, 1500);
+    }, 1000);
   }
 }
 arman = new Person();
 arman.greet();
 arman.greetWithDelay();
+arman.greetWithDelayWithArrowFunction();

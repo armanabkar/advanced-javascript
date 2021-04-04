@@ -35,6 +35,7 @@ newTest.apply(obj, [5, 6]);
 newTest.bind(obj);
 
 // Classes
+// 'class' keyword is just a syntactic sugar for factory functions
 class House {
   constructor(doors, windows) {
     this.doors = doors;
@@ -50,6 +51,7 @@ class House {
     console.log("static called...");
   }
 }
+// The 'new' keyword constructs and returns an object (instance) of a constructor function and it binds property or function which is declared with this keyword to the new object.
 const obj1 = new House(2, 4);
 obj1.showData();
 House.test();
