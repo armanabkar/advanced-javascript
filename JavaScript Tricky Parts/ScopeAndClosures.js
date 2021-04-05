@@ -1,3 +1,6 @@
+"use strict";
+// can't duplicate parameter names, can't create variables with the use of the eval function, The default value of this will be undefined, can't assign a value to a read-only or non-writable global variable, can't assign or access a variable that is not declared.
+
 // Scope is all about the visibility of variables in your code - it controls which variable can be used where.
 // Hoisting is about how the JavaScript engine parses and executes your code and the “availability” of functions and variables.
 

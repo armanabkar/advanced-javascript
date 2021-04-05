@@ -17,6 +17,7 @@ console.log(!!myName); // convert to boolean
 console.log(["2"] + 1);
 // [object Object]
 console.log({} + "this works");
+console.log(typeof +"1"); // convert string to int
 
 function factorial(n) {
   let result = 1;

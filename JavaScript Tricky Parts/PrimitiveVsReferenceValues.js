@@ -24,3 +24,11 @@ const user = { name: "Arman", age: 22 };
 const newNumber = numbers.slice(); // [...numbers] and filter and map returns new array
 newPerson = { ...user };
 // another way: Object.assign({},user)
+
+// null vs undefined
+// '!!' coerces the value on the right side into a boolean.
+console.log(!!null, !!undefined, Boolean(null), Boolean(undefined)); //logs false false false false
+console.log(null == undefined); // logs true
+console.log(null === undefined); // logs false
+
+const falsyValues = ["", 0, null, undefined, NaN, false]; // when converted to boolean (!!) becomes false

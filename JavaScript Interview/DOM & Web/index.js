@@ -14,7 +14,8 @@ setInterval(() => {
 // addEventListener("click", btnClick, true);
 function btnClick() {
   event.stopPropagation();
-  alert(event.target);
+  alert(event.target); // event.target is the element on which the event occurred or the element that triggered the event.
+  // The event.currentTarget is the element on which we attach the event handler explicitly.
 }
 
 // Event Delegation
@@ -67,3 +68,8 @@ document.getElementById("input").oncopy = () => console.log("copy!");
 document.getElementById("input").onpaste = () => false; // prevent paste!
 
 // ClientXY -> what client sees - PageXY -> with navigation and scrollbar, ScreenXY -> entire screen
+
+addEventListener("keydown", () => {
+  event.preventDefault(); //  prevents the default behavior of element
+  event.stopPropagation(); // stops the propogation of an event or it stops the event from occurring in the bubbling or capturing phase
+});
