@@ -28,10 +28,23 @@ const genFunctions = function* () {
   yield;
   console.log("and Galaxy");
 };
-const gObj = genFunctions();
+const gObj = genFunctions(); // using closures under the hood
 gObj.next();
-gObj.next(); // .return, .throw
+gObj.next(); // or .return, .throw
 // Use Iterators & Generators to create your own loopable values (what arrays, strings, etc use internally)
+
+// Async Generators
+// Async/Await is using generators under the hood
+function doWhenDataReceived(value) {
+  returnNextElement.next(value);
+}
+function* createFlow() {
+  // const data = yield fetch("https://jsonplaceholder.typicode.com/todos/1");
+  // console.log(data);
+}
+const returnNextElement = createFlow();
+const futureData = returnNextElement.next();
+// futureData.then(doWhenDataReceived);
 
 // Reflect API - to control objects, standardized and grouped methods, control code usage/impact
 const book = {

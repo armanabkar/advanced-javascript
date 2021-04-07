@@ -95,3 +95,10 @@ try {
 } finally {
   console.log("finally called...");
 }
+
+// 'argument' object
+// doesn't work in arrow functions; use rest syntax (...args)
+function argumentObject() {
+  return Array.prototype.slice.call(arguments); // convert to array
+}
+console.log(argumentObject("test string 1"));

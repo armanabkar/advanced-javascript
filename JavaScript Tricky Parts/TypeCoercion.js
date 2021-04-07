@@ -28,3 +28,6 @@ function factorial(n) {
 }
 
 // Context: Data structures with information about execution (e.g. variable values)
+
+console.log(1 + parseInt("6")); // Explicit Coercion
+console.log(1 + "6"); // Implicit Coercion

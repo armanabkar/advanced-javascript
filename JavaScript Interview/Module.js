@@ -1,5 +1,14 @@
-// You need server for using export/import in browsers
+// Using ES5 CommonJS
+// export
+exports.isNull = function (val) {
+  return val === null;
+};
+module.exports = Helpers; // another way
+// import
+const helpers = require("./helpers.js");
 
+// Using ES6 Modules
+// You need server for using export/import in browsers
 // Export
 export function test() {
   console.log("test");

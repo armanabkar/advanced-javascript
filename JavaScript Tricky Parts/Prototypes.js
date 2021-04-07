@@ -71,3 +71,6 @@ class BossClass extends EmployeeClass {
     super();
   }
 }
+
+const newObject = Object.create(null); // object without prototype
+// console.log(newObject.toString()); -> throws an error

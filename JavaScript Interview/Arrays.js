@@ -2,6 +2,9 @@
 let arr = [4, 7, 9, "Hi!", true];
 console.log(arr[2]);
 
+// check if a value is an Array
+console.log(Array.isArray(5), Array.isArray([])); // logs false true
+
 // Methods
 arr.pop();
 arr.shift();

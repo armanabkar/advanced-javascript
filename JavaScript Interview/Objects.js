@@ -17,6 +17,7 @@ Object.defineProperty(obj, "pCode", {
   value: 2001,
 });
 obj.getData();
+console.log(1 in obj, obj.hasOwnProperty(1), obj[1]); // 3 ways to check if a certain property exists in an object
 
 // Clone Object
 let newObj = Object.assign({}, obj);
@@ -35,7 +36,7 @@ newTest.apply(obj, [5, 6]);
 newTest.bind(obj);
 
 // Classes
-// 'class' keyword is just a syntactic sugar for factory functions
+// 'class' keyword is syntactic sugar for constructor functions and still uses prototypes and Prototype-Based Inheritance under the hood
 class House {
   constructor(doors, windows) {
     this.doors = doors;
@@ -51,7 +52,8 @@ class House {
     console.log("static called...");
   }
 }
-// The 'new' keyword constructs and returns an object (instance) of a constructor function and it binds property or function which is declared with this keyword to the new object.
+// The 'new' keyword constructs and 1-Creates an empty object 2-Assigns that empty object to the this value. 3-The function will inherit from functionName.prototype. 4-Returns the this if no Explicit return statement is used.
+
 const obj1 = new House(2, 4);
 obj1.showData();
 House.test();
@@ -80,3 +82,15 @@ obj2.showData();
 // Object Destructuring
 let { pCode } = obj;
 console.log(pCode);
+
+// create object using Object.create
+const objectCreate = {
+  greeting() {
+    return `Hi, I'm ${this.name}`;
+  },
+};
+const o = Object.create(objectCreate); // sets the prototype of "o" to be "n"
+o.name = "Arman";
+console.log(o.greeting()); // logs "Hi, I'm Mark"
+
+// with 'Object.seal' object's properties will be immutable but with 'Object.seal' we can change existing properties

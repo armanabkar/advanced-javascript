@@ -25,6 +25,12 @@ var myGF;
 greet();
 // Indirect function execution - passing reference of greet function to execute after 1s
 setTimeout(greet, 1000);
+function hoistedFunc() {
+  console.log("I am hoisted");
+}
+var notHoistedFunc = function () {
+  console.log("I will not be hoisted!");
+};
 
 // Local/Function Scopes - In functions
 // Also added to Global Object
