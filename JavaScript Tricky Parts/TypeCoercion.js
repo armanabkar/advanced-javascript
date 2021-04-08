@@ -1,4 +1,9 @@
 // Type Coercion
+[].toString(); // ""; toString() will convert everything to string
+console.log(typeof String(null));
++"1"; // toNumber() will convert everything to 0 except objects and arrays
+!!true; // toBoolean(); falsy_values: 0, -0, null, NaN, false, undefined
+
 console.log(3 + "2"); // 32 - String is safer value
 console.log(3 + Number("2")); // 5
 // true = 1 / false = 0
@@ -19,15 +24,13 @@ console.log(["2"] + 1);
 console.log({} + "this works");
 console.log(typeof +"1"); // convert string to int
 
-function factorial(n) {
-  let result = 1;
-  for (let i = 0; i < n; i++) {
-    result = result * (n - i);
-  }
-  return result;
-}
-
 // Context: Data structures with information about execution (e.g. variable values)
 
 console.log(1 + parseInt("6")); // Explicit Coercion
 console.log(1 + "6"); // Implicit Coercion
+
+console.log(isNaN("100")); // false, becurse it does type coercion
+
+// Equality
+console.log(1 == "1"); // abstract; check value (with coercion if needed)
+console.log(1 === "1"); // strict; check value and type

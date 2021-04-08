@@ -15,8 +15,8 @@ outputInfo(); // undefined! -> outputInfo() is not called on 'person' so this re
 // "this" refers to “on what the function was called”.
 
 class Person {
-  constructor() {
-    this.age = 22;
+  constructor(age) {
+    this.age = age;
   }
 
   greet() {
@@ -43,7 +43,7 @@ class Person {
     }, 1000);
   }
 }
-arman = new Person();
+arman = new Person(22);
 arman.greet();
 arman.greetWithDelay();
 arman.greetWithDelayWithArrowFunction();

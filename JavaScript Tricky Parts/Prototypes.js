@@ -37,12 +37,13 @@ const boss = {
   age: 40,
 };
 
-// This is not recommended
+// This is not recommended, because everyone can use
 Object.prototype.greetOverall = () => console.log("Hello World");
 console.log(boss.__proto__);
 boss.greetOverall();
 // Bad way for changing prototype
 // boss.__proto__ = Employee;
+console.log(boss.hasOwnProperty("name"));
 
 // Prototype Chain:
 // instructor <- person <- Object Prototype <- null
@@ -65,8 +66,41 @@ console.log(Arman.kind);
 console.log(Arman.__proto__ === Person.prototype || human); // true
 // The non-standard '__proto__' property gives you access to the prototype of the object you’re accessing it on. The standard 'prototype' property does something different. It points at the prototype of objects that will be created in the future (via the constructor function on which you set it). Hence only function objects have a 'prototype' property.
 
+// Another example of object creator function('class' keyword use this under the hood):
+function UserCreator(name, score) {
+  this.name = name;
+  this.score = score;
+}
+UserCreator.prototype.increment = function () {
+  this.score++; // doesn't work with arrow function
+  // or use this:
+  // const add = () => this.score++;
+  // add();
+};
+UserCreator.prototype.sayHello = function () {
+  console.log(`Hi there! I'm ${this.name}.`);
+};
+const user1 = new UserCreator("Eva", 9);
+user1.increment();
+console.log(user1.score);
+
+// Subclassing & Inheritance
+function paidUserCreator(paidName, paidScore, accountBalance) {
+  UserCreator.call(this, paidName, paidScore); // what super() do
+  // or
+  // UserCreator.apply(this, [paidName, paidScore]);
+  this.accountBalance = accountBalance;
+}
+paidUserCreator.prototype = Object.create(UserCreator.prototype); // what extends do
+paidUserCreator.prototype.increaseBalance = function () {
+  this.accountBalance++;
+};
+const paidUser1 = new paidUserCreator("Adam", 8, 25);
+paidUser1.increaseBalance();
+paidUser1.sayHello();
+
+// Super simplified version of object creator function and sub-classing; 'class' keyword:
 class BossClass extends EmployeeClass {
-  // extend and super will assign prototype but in different way
   constructor() {
     super();
   }
