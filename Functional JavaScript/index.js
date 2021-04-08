@@ -45,10 +45,63 @@ const runFunctionOutput = (input, fn) => {
 };
 console.log(reduce([multiplyBy2, add3, divideBy5], runFunctionOutput, 11));
 
+// Implementing Pipe Operator
+const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
+const pipeResult = pipe(multiplyBy2, add3, divideBy5)(11);
+console.log({ pipeResult });
+
 // Pure Functions
 // functions must be highly predictable, same output/input and no side effects (e.g. log console, http calls, etc)
 const add10 = (x) => x + 10;
 
 // Immutability
 const array = [1, 2, 3];
-const result = array.map(add10); // this will return new array and won't change original array
+const anotherArray = array.map(add10); // .map() will return new array and won't change original array
+
+// Closure
+// Promises, Generators, CommonJS modules and many other JavaScript features are using closure under the hood
+// for debugging you need to know how it works under the hood
+const outer = () => {
+  let counter = 0;
+  const incrementCounter = () => {
+    console.log(counter++);
+  };
+  return incrementCounter;
+};
+const generatedFunc = outer(); // permanent memory
+generatedFunc();
+generatedFunc();
+
+// Function Decoration
+// for changing functionality e.g. to add a permanent memory we can return another function from a function
+// function that runs only once
+const oncify = (convertMe) => {
+  let counter = 0;
+  const inner = (input) => {
+    if (counter === 0) {
+      const output = convertMe(input);
+      counter++;
+      return output;
+    }
+    return "Sorry, already executed";
+  };
+  return inner;
+};
+const multiplyBy3 = (num) => num * 3;
+const onceMultiplyBy3 = oncify(multiplyBy3);
+console.log(onceMultiplyBy3(2)); // runs only once
+console.log(onceMultiplyBy3(3)); // sorry
+
+// Partial Application and Currying
+const multiply = (a, b) => a * b;
+// two arity function to one arity
+function prefillFunction(fn, prefillValue) {
+  const inner = (liveInput) => {
+    const output = fn(liveInput, prefillValue);
+    return output;
+  };
+  return inner;
+}
+// [Closure in Functional Programming style]
+const multiplyBy5 = prefillFunction(multiply, 5);
+console.log(multiplyBy5(5));
