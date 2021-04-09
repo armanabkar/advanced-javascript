@@ -26,7 +26,7 @@ const companyPerson = {
 
 // Defining prototype for a object
 Employee.prototype = companyPerson;
-const p1 = new Employee("Sogol", 35);
+const p1 = new Employee("Mary", 35);
 p1.greet();
 
 Employee.prototype.sayGoodbye = () => console.log("bye!");

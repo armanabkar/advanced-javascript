@@ -44,7 +44,7 @@ if (isNaN(name * age)) {
 console.log(NaN === NaN); // false
 console.log(isFinite(5 * 4)); // Check for infinity and NaN
 
-// Arrow Functions: 1-'this' doesn't work 2-'arguments' doesn't work (use rest instead) 3-You cannot use 'new' (We don't need the function to act as a class)
+// Arrow Functions: 1-'this' doesn't work 2-'arguments' doesn't work (use rest instead) 3-You cannot use 'new' (We don't need the function to act as a class) 4-Are anonymous so only use when needed
 // Function Expression (let test = ...)
 let test1 = () => {};
 (function () {

@@ -26,8 +26,8 @@ class Queue {
 
 const queue1 = new Queue();
 queue1.enqueue("Arman");
-queue1.enqueue("Sogol");
-queue1.enqueue("MaRaL");
+queue1.enqueue("Mary");
+queue1.enqueue("Gwen");
 console.log(queue1.toArray());
 console.log(queue1.dequeue());
 
@@ -56,7 +56,7 @@ class QueueWithLinkedList {
 
 const queue2 = new QueueWithLinkedList();
 queue2.enqueue("Arman");
-queue2.enqueue("Sogol");
-queue2.enqueue("MaRaL");
+queue2.enqueue("Mary");
+queue2.enqueue("Gwen");
 console.log(queue2.toArray());
 console.log(queue2.dequeue());

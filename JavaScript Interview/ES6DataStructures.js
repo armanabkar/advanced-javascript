@@ -25,7 +25,7 @@ console.log(product.has("pCode"));
 // Only unique and not repeating values, iterable
 let names = new Set();
 names.add("Arman");
-names.add("Sogol");
+names.add("Mary");
 names.add("Arman");
 names.add("Alin");
 console.log(names);

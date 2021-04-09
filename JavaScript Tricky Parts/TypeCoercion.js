@@ -34,3 +34,4 @@ console.log(isNaN("100")); // false, becurse it does type coercion
 // Equality
 console.log(1 == "1"); // abstract; check value (with coercion if needed)
 console.log(1 === "1"); // strict; check value and type
+// if you know the types in a comparison; use ==; it's also faster -> if you don't know types so you don't fully understand the code! and you can't write quality JS programs

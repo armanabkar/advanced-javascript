@@ -26,7 +26,7 @@ function linearSearch(arr, element) {
 const arr = [5, 2, 7, 3, 10, 33];
 const users = [
   { name: "arman", age: 22 },
-  { name: "sogol", age: 35 },
+  { name: "mary", age: 35 },
 ];
 console.log(linearSearch(arr, 10)); // return index
 console.log(linearSearch(users, { name: "arman", age: 22 })); // return index

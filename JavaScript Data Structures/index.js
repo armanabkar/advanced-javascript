@@ -2,12 +2,12 @@
 
 // JS Array - insertion order is kept, have index, iterable, dynamic size, duplicate values allowed
 // Time Complexities: element access O(1) - insertion at the end O(1) - insertion at the beginning O(n) - Insertion in Middle O(n) + Search time - Search elements O(n)
-const names = ["Max", "Manu", "Arman", "Sogol", "Sogol"];
+const names = ["Max", "Manu", "Arman", "Mary", "Mary"];
 names.push("alin");
 for (const el of names) {
   console.log(el);
 }
-console.log(names.findIndex((el) => el === "Sogol")); // can be performance intensive
+console.log(names.findIndex((el) => el === "Mary")); // can be performance intensive
 console.log(names.splice(2, 1)); // can be performance intensive
 
 // JS Sets - no insertion order - dynamic size - iterable - elm access with methods - duplicate values not allowed - deletion and finding is faster -> simplified data access and better performance for large data
