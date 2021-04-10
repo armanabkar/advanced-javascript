@@ -1,4 +1,18 @@
-// Advantages Of Functional Programming: 1-helps us to solve problems effectively in a simpler way 2-improves modularity 3-It allows us to implement lambda calculus in our program to solve complex problems 4-Some programming languages support nested functions which improve maintainability of the code
+// Functional Programming is math!
+// Advantages Of Functional Programming: 1-helps us to solve problems effectively in a simpler way 2-improves modularity 3-It allows us to implement lambda calculus in our program to solve complex problems 4-Some programming languages support nested functions which improve maintainability of the code 5-Code is provable
+
+// Pure Functions
+// Functions must be highly predictable, same output/input and no side effects and also should follow best practices for naming
+const add10 = (x) => x + 10;
+// Functions that are not returning something are procedures
+// Side Effects: I/O, Database storage, http calls, DOM, timestamps, random numbers, cpu heat & delay, etc -> minimize side effects and make them obvious
+const addAnother = (a, b) => a + b + z; // impure
+// function doSth(parameters) {} / doSth(arguments)
+// Function Shapes: unary(x) - binary(x, y)
+
+// Immutability
+const array = [1, 2, 3];
+const anotherArray = array.map(add10); // .map() will return new array and won't change original array
 
 // Higher-Order Functions
 // Functions that operate on other functions, either by taking them as arguments or by returning them
@@ -49,14 +63,6 @@ console.log(reduce([multiplyBy2, add3, divideBy5], runFunctionOutput, 11));
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 const pipeResult = pipe(multiplyBy2, add3, divideBy5)(11);
 console.log({ pipeResult });
-
-// Pure Functions
-// functions must be highly predictable, same output/input and no side effects (e.g. log console, http calls, etc)
-const add10 = (x) => x + 10;
-
-// Immutability
-const array = [1, 2, 3];
-const anotherArray = array.map(add10); // .map() will return new array and won't change original array
 
 // Closure
 // Promises, Generators, CommonJS modules and many other JavaScript features are using closure under the hood

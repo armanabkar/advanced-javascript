@@ -35,7 +35,7 @@ class Person {
     );
   }
 
-  // Also can be fixed with Arrow Functions; while in ES5 ‘this’ referred to the parent of the function, in ES6, arrow functions use lexical scoping — ‘this’ refers to it’s current surrounding scope
+  // Also can be fixed with Arrow Functions; while in ES5 ‘this’ referred to the parent of the function, in ES6, arrow functions use lexical scoping — ‘this’ refers to it’s current surrounding scope => lexical 'this'
   greetWithDelayWithArrowFunction() {
     setTimeout(() => {
       console.log(this);
@@ -47,3 +47,12 @@ arman = new Person(22);
 arman.greet();
 arman.greetWithDelay();
 arman.greetWithDelayWithArrowFunction();
+
+const classRoom = {
+  teacher: "Arman",
+  ask(question) {
+    console.log(this.teacher, question);
+  },
+};
+setTimeout(classRoom.ask, 1, "Can I go out?"); // undefined; different context
+setTimeout(classRoom.ask.bind(classRoom), 1, "Can I go out?");

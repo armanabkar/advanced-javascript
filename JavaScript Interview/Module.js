@@ -1,4 +1,5 @@
 // Using ES5 CommonJS
+// Encapsulates data and behavior and state of module is held by its methods via 'closure'
 // export
 exports.isNull = function (val) {
   return val === null;
@@ -19,7 +20,7 @@ export { sum, test as test1 };
 
 // Named Import (multiple export/imports) - if all the modules wont be used, use named import/exports
 import { test } from ".";
-// import all modules
+// import all modules (or namespace import)
 import * as calc from ".";
 
 // Default export/import

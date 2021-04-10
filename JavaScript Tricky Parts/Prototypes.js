@@ -17,6 +17,10 @@ class EmployeeClass {
     this.name = name;
     this.id = id;
   }
+
+  greet(name) {
+    console.log(`Hi ${name}! Nice to meet you.`);
+  }
 }
 const companyPerson = {
   greet() {
@@ -91,7 +95,7 @@ function paidUserCreator(paidName, paidScore, accountBalance) {
   // UserCreator.apply(this, [paidName, paidScore]);
   this.accountBalance = accountBalance;
 }
-paidUserCreator.prototype = Object.create(UserCreator.prototype); // what extends do
+paidUserCreator.prototype = Object.create(UserCreator.prototype); // what extends do (prototypal inheritance)
 paidUserCreator.prototype.increaseBalance = function () {
   this.accountBalance++;
 };
@@ -101,9 +105,31 @@ paidUser1.sayHello();
 
 // Super simplified version of object creator function and sub-classing; 'class' keyword:
 class BossClass extends EmployeeClass {
+  // linked to it's own prototype
   constructor() {
     super();
+
+    // Strange way to fix 'this'!
+    this.askQuestion = (question) => {
+      console.log(this.teacher, question);
+    };
   }
+
+  // Method Overriding
+  greet(name) {
+    super.greet(name.toUpperCase());
+  }
+}
+
+// Inheritance in JavaScript is Behavior Delegation; Objects Linked to Other Objects (OLOO) -> JS is Objects-Oriented
+
+// Object.create Polyfill
+if (!Object.create) {
+  Object.create = function (o) {
+    function F() {}
+    F.prototype = o;
+    return new F();
+  };
 }
 
 const newObject = Object.create(null); // object without prototype

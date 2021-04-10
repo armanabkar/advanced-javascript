@@ -39,7 +39,7 @@ var notHoistedFunc = function () {
 // Also added to Global Object
 // Function Deceleration
 function greet() {
-  // Shadowing
+  // Shadowing -> we have two myName variable
   var myName = "Mary";
   console.log(`Hello, I'm ${myName} and ${myAge} years old!`);
 }
@@ -65,6 +65,7 @@ if (myAge > 18) {
 console.log(yourAge);
 
 // Closures
+// -> when a function remembers its lexical scope even when the function is executed outside that lexical scope
 // Every function in JavaScript is a closure! That means that every function closes over its environment when it’s created.
 // Lexical env : the variables in scope, Lexical Scoping defines how variable names are resolved in nested functions: inner functions contain the scope of parent functions even if the parent function has returned. (compile time)
 // Dynamic Scope doesn't exist in JS; it's about where a variable asked
@@ -80,7 +81,7 @@ function createGreeter(name) {
 const greetArman = createGreeter("ARMAN");
 greetArman();
 
-// Problem...
+// Problem...; it's because of closure
 for (var i = 0; i < 5; i++) {
   setTimeout(() => {
     console.log(i); // 5 5 5 5 5
@@ -88,7 +89,7 @@ for (var i = 0; i < 5; i++) {
 }
 // Solution -> use let i or IIFE:
 for (var i = 0; i < 5; i++) {
-  // IIFE (anonymous)
+  // IIFE (anonymous) (kinda Singleton)
   (function () {
     var j = i;
     setTimeout(() => {
