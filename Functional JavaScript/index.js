@@ -64,7 +64,7 @@ const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
 const pipeResult = pipe(multiplyBy2, add3, divideBy5)(11);
 console.log({ pipeResult });
 
-// Closure
+// Closure -> when a function remembers the variables around it - it's not necessarily pure!
 // Promises, Generators, CommonJS modules and many other JavaScript features are using closure under the hood
 // for debugging you need to know how it works under the hood
 const outer = () => {

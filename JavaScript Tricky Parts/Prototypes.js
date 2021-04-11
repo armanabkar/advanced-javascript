@@ -134,3 +134,12 @@ if (!Object.create) {
 
 const newObject = Object.create(null); // object without prototype
 // console.log(newObject.toString()); -> throws an error
+
+// Mixin
+const codingMixin = {
+  code() {
+    console.log("console.log('Hello World!')");
+  },
+};
+Object.assign(BossClass.prototype, codingMixin);
+ 
