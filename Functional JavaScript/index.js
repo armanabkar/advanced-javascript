@@ -11,8 +11,12 @@ const addAnother = (a, b) => a + b + z; // impure
 // Function Shapes: unary(x) - binary(x, y)
 
 // Immutability
+// things that not changing accidentally
 const array = [1, 2, 3];
 const anotherArray = array.map(add10); // .map() will return new array and won't change original array
+array[3] = 4; // allowed! value immutability is more important
+console.log(array[3]);
+Object.freeze(array); // can't be modified anymore
 
 // Higher-Order Functions
 // Functions that operate on other functions, either by taking them as arguments or by returning them
@@ -41,6 +45,38 @@ console.log(filtered);
 // Built-in Array Methods
 [1, 2, 3].push(4); // where does this method come from? __proto__; object that every array has access
 // also methods can be chained
+
+// Recursion
+function isPalindrome(str) {
+  if (str.length <= 1) return true;
+  let first = str[0];
+  let last = str[str.length - 1];
+  if (first === last) {
+    return isPalindrome(str.substring(1, str.length - 1));
+  }
+  return false;
+}
+console.log("isPalindrome:", isPalindrome("aba"), isPalindrome("ab"));
+
+// Monad -> FP Data Structure; for pairing data with a set of predictable behaviour that let it interact with other pairs
+function just(val) {
+  return { map, chain, ap };
+
+  function map(fn) {
+    return just(fn(val));
+  }
+
+  // aka: bind, flatMap
+  function chain(fn) {
+    return fn(val);
+  }
+
+  function ap(anotherMonad) {
+    return anotherMonad.map(val);
+  }
+}
+let fortyOne = just(41);
+let fortyTwo = fortyOne.map((v) => v + 1);
 
 // Composition
 const multiplyBy2 = (x) => x * 2;
@@ -111,3 +147,17 @@ function prefillFunction(fn, prefillValue) {
 // [Closure in Functional Programming style]
 const multiplyBy5 = prefillFunction(multiply, 5);
 console.log(multiplyBy5(5));
+
+// Observables ~== LazyArray
+// You can use RxJS for Reactive Programming
+// var a = new Rx.Subject();
+// setInterval(() => {
+//   a.next(Math.random());
+// }, 1000);
+// var b = a.map((v) => v * 2);
+// b.subscribe((v) => console.log(v));
+
+// Functional JS Libraries:
+// Ramda (recommended)
+// Lodash_FP
+// fpo (supports named-argument style methods like in dart: {arr: [3, 7, 9], fn: () => {}})
