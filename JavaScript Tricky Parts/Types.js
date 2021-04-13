@@ -46,6 +46,22 @@ const sign = (num) =>
   num !== 0 ? Math.sign(num) : Object.is(num, -0) ? -1 : 1; // corrected sign()
 console.log(sign(-1), sign(1), sign(-0), sign(0));
 
+// Infinity
+console.log(Number.POSITIVE_INFINITY);
+console.log(Number.MAX_VALUE);
+// When the value is bigger than 64 bit:
+console.log(-9e400);
+
+// NaN
+let name = "arman";
+let age = 22;
+console.log(name * age); // NaN
+if (isNaN(name * age)) {
+  console.log("Valid!");
+}
+console.log(NaN === NaN); // false
+console.log(isFinite(5 * 4)); // Check for infinity and NaN
+
 // Object.is Polyfill
 if (!Object.is) {
   Object.is = function ObjectIs(x, y) {
@@ -74,3 +90,41 @@ if (!Object.is) {
 // use 'new' with Object, Array, Function, Date, RegExp, Error but don't use with String, Number, Boolean
 var yesterday = new Date("April 8, 2021");
 console.log(yesterday);
+
+// Type Coercion
+[].toString(); // ""; toString() will convert everything to string
+console.log(typeof String(null));
++"1"; // toNumber() will convert everything to 0 except objects and arrays
+!!true; // toBoolean(); falsy_values: 0, -0, null, NaN, false, undefined
+
+console.log(3 + "2"); // 32 - String is safer value
+console.log(3 + Number("2")); // 5
+// true = 1 / false = 0
+console.log(true + 1 + false); // 1 + 1 + 0
+console.log(12 / "3"); // 4 but + is different
+console.log(5 > "hi"); // converts both to string
+/// 0123456789abcdefghi...
+console.log("hi" > true); // NaN > 1 => false
+// Everything is truthy except
+console.log(false, null, undefined, 0, -0, "", NaN);
+console.log(true && "Yeah Buddy!");
+console.log(1 || "zero");
+const myName = "Arman";
+console.log(!!myName); // convert to boolean
+// 1-toPrimitive() 2-toString() 3-
+console.log(["2"] + 1);
+// [object Object]
+console.log({} + "this works");
+console.log(typeof +"1"); // convert string to int
+
+// Context: Data structures with information about execution (e.g. variable values)
+
+console.log(1 + parseInt("6")); // Explicit Coercion
+console.log(1 + "6"); // Implicit Coercion
+
+console.log(isNaN("100")); // false, becurse it does type coercion
+
+// Equality
+console.log(1 == "1"); // abstract; check value (with coercion if needed)
+console.log(1 === "1"); // strict; check value and type
+// if you know the types in a comparison; use ==; it's also faster -> if you don't know types so you don't fully understand the code! and you can't write quality JS programs

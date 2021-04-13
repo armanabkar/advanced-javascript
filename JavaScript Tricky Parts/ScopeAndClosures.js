@@ -43,11 +43,22 @@ function greet() {
   var myName = "Mary";
   console.log(`Hello, I'm ${myName} and ${myAge} years old!`);
 }
+// Arrow Functions: 1-'this' doesn't work 2-'arguments' doesn't work (use rest instead) 3-You cannot use 'new' (We don't need the function to act as a class) 4-Are anonymous so only use when needed
+let test1 = () => {};
+(function () {
+  console.log("IIFE!");
+})();
 // Function Expression (with anonymous function - named ones are preferred)
 var anotherGreet = function () {
   var anotherMyName = "Arman";
   console.log(`Hello, I'm ${anotherMyName} and ${myAge} years old!`);
 };
+// 'argument' object
+// doesn't work in arrow functions; use rest syntax (...args)
+function argumentObject() {
+  return Array.prototype.slice.call(arguments); // convert to array
+}
+console.log(argumentObject("test string 1"));
 
 // Block scope
 // only scoped with let/const
@@ -104,3 +115,12 @@ for (var i = 0; i < 5; i++) {
 
 const students = ["Arman", "MAry"];
 students[1] = "Jessie"; // allowed! but can't reassigned
+
+// Rest Operator - rest of parameters
+function sum(...nums) {
+  console.log(nums);
+}
+sum(1, 2, 4, 5);
+let arr1 = [1, 2, 3, 4];
+// Spread Operator
+let arr2 = [...arr1, 5, 6, 7];

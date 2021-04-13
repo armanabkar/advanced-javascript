@@ -148,6 +148,11 @@ function prefillFunction(fn, prefillValue) {
 const multiplyBy5 = prefillFunction(multiply, 5);
 console.log(multiplyBy5(5));
 
+// Currying
+const sum1 = (a) => (b) => a + b; // Inner Funcs
+const cl1 = sum1(5)(6);
+console.log(cl1);
+
 // Observables ~== LazyArray
 // You can use RxJS for Reactive Programming
 // var a = new Rx.Subject();

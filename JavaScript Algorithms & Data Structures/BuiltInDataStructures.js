@@ -1,3 +1,11 @@
+// Variables that not used are memory leaks (global variables)
+// JS is single-threaded/non-blocking and has Call Stack for executing functions (LIFO), recursion without base case -> StackOverFlow!
+// WebAPIs: DOM, AJAX, setTimeout, ...
+
+// Compiler automatically adds semicolon at the end of line -> Automatic Semicolon Insertion (ASI)
+
+// Garbage Collection (GC) or automatic memory management - when there is no reference it will be garbage collected - Browsers will do GC because JS is higher level language
+
 // Data Structure allow you to manage data e.g. JavaScript built ing data structures like array, object, set, map
 
 // JS Array - insertion order is kept, have index, iterable, dynamic size, duplicate values allowed
@@ -19,6 +27,7 @@ for (const el of ids) {
 console.log(ids.has("abc"));
 ids.delete("def");
 console.log(ids);
+ids.forEach((id) => console.log(id));
 
 // JS Objects - unordered key-value pairs - element access with key - not iterable - keys are unique but values not - can store data and methods - very versatile
 // Time Complexities: element access O(1) - insertion at the end O(1) - insertion at the beginning O(1) - Insertion in Middle O(1) - Search elements O(1)
@@ -45,5 +54,16 @@ for (const el of resultData) {
 }
 console.log(resultData.get("average"));
 resultData.delete("lastResult");
+// Convert object literal to map
+const product = new Map();
+let obj = {
+  pCode: 1001,
+  pName: "orange",
+};
+let objNew = new Map(Object.entries(obj));
+console.log(objNew);
+// Convert map to object literal
+let objNew2 = Object.fromEntries(product.entries());
+console.log(product.has("pCode"));
 
-// JS WeakSet & WeakMap => values and keys are only weakly referenced -> Garbage Collection can delete values and keys if not used anywhere else in the app -> matters only in performance intensive apps
+// JS WeakSet & WeakMap => values and keys are only weakly referenced -> Garbage Collection can delete values and keys if not used anywhere else in the app -> matters only in performance intensive apps (DOM)
