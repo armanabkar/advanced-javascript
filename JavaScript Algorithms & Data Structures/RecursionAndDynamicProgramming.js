@@ -1,3 +1,5 @@
+// Recursion
+// JavaScript only executes one function at a time but it’s capable of managing multiple ongoing (waiting) function calls with help of a concept called the execution context stack (or “call stack”).
 // Anything you do with a recursion can be done iteratively (loop) - Recursion is good because of DRY and readable code, but large stack (can be solved with tail call optimization)
 // use cases: Merge Sort, Quick Sort, Tree and Graph Traversals, etc
 
@@ -23,6 +25,33 @@ function fib(n) {
   return fib(n - 1) + fib(n - 2);
 }
 console.log(fib(6), `- runs ${counter} times`); // 5
+
+// Traversal using recursion
+const filesystem = {
+  documents: {
+    files: ["tax.txt", "resume.pdf", "picture.png"],
+  },
+  work: {
+    urgent: {
+      files: ["project-b.pdf"],
+    },
+    lowPrio: {
+      files: ["budget.xlsx"],
+    },
+  },
+};
+// Use recursion for avoiding nested loops
+function getFilenames(fs) {
+  const allFiles = [];
+  for (const identifier in fs) {
+    if (Array.isArray(fs[identifier])) {
+      allFiles.push(...fs[identifier]);
+    } else {
+      allFiles.push(...getFilenames(fs[identifier]));
+    }
+  }
+  return allFiles;
+}
 
 // Dynamic Programming: is just an optimization technique (caching); consist of
 // 1 Recursion - great for repeated computations, can lead to duplicate work
