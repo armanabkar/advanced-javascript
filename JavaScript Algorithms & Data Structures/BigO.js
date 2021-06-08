@@ -53,14 +53,16 @@ console.log(sumUp2(6));
 function sumNumbers(numbers) {
   // O(1)
   // return numbers[0] + numbers[1] + numbers[2];
+  
   // O(n)
   // let result = 0;
   // for (const number of numbers) {
   //   result += number;
   // }
   // return result;
+
   // This have another function
-  // return numbers.reduce((sum, currentNum) => sum + currentNum, 0);
+  return numbers.reduce((sum, currentNum) => sum + currentNum, 0);
 }
 
 console.log(sumNumbers([1, 3, 10]));
@@ -79,3 +81,15 @@ function logAllPairsOfArrays(array) {
 logAllPairsOfArrays([1, 2]);
 
 // Logarithmic Time Complexity O(log n) -> with Tree Data Structures, like google's search results
+
+// Different terms for input
+// O(a + b)
+function logItems(a, b) {
+  for (let i = 0; i < a; i++) {
+    console.log(i);
+  }
+
+  for (let j = 0; j < b; j++) {
+    console.log(j);
+  }
+}
