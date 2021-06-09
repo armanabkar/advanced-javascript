@@ -4,15 +4,14 @@
 // use cases: Merge Sort, Quick Sort, Tree and Graph Traversals, etc
 
 // Recursive Factorial
-function fact(number) {
-  if (number === 1) {
-    return 1;
-  }
-  return number * fact(number - 1);
+function factorial(number) {
+  if (number === 1) return 1;
+
+  return number * factorial(number - 1);
 }
 
-console.log(fact(3)); // 6
-console.log(fact(4)); // 24
+console.log(factorial(3)); // 6
+console.log(factorial(4)); // 24
 
 // Recursive Fibonacci
 // => three of nested (and repeated) functions => Exponential Time Complexity O(2**n)

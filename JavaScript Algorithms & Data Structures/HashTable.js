@@ -215,3 +215,19 @@ function firstRecurringCharacter2(input) {
 }
 console.log(firstRecurringCharacter1([2, 5, 1, 2, 3, 5, 1, 2, 4])); // O(n^2)
 console.log(firstRecurringCharacter2([2, 5, 1, 2, 3, 5, 1, 2, 4])); // O(n)
+
+// Common Interview question
+function itemsInCommon(arr1, arr2) {
+  let obj = {};
+
+  for (let i = 0; i < arr1.length; i++) {
+    obj[arr1[i]] = true;
+  }
+  for (let j = 0; j < arr1.length; j++) {
+    if (obj[arr2[j]]) return true;
+  }
+
+  return false;
+}
+
+console.log(itemsInCommon([1, 3, 5], [2, 4, 5]));
