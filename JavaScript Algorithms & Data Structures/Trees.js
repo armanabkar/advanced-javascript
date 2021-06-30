@@ -66,13 +66,13 @@ class Node {
   }
 
   // Depth-first
-  find(value) {
+  depthFirstSearch(value) {
     console.log(this);
     for (const child of this.children) {
       if (child.value === value) {
         return child;
       }
-      const nestedChildNode = child.find(value);
+      const nestedChildNode = child.depthFirstSearch(value);
       if (nestedChildNode) {
         return nestedChildNode;
       }
@@ -109,11 +109,18 @@ class Tree {
     this.root.removeNode(path);
   }
 
-  find(value) {
+  findDepthFirstSearch(value) {
     if (this.root.value === value) {
       return this.root;
     }
-    return this.root.find(value);
+    return this.root.depthFirstSearch(value);
+  }
+
+  findBreathFirstSearch(value) {
+    if (this.root.value === value) {
+      return this.root;
+    }
+    return this.root.findBreathFirst(value);
   }
 }
 
@@ -128,7 +135,8 @@ console.log(filesystem);
 
 // Traversing Tree : 1-Depth-First 2-Breath-First
 // Which one is better depends on the tree, e.g. If values is deeply inside the tree, choose BFS
-console.log(filesystem.find("personal"));
+console.log(filesystem.findDepthFirstSearch("personal"));
+console.log(filesystem.findBreathFirstSearch("personal"));
 
 // Breath First Search/Traversal
 // Searching in leafs in every level from left to right, more memory required (to keep track of elements)
